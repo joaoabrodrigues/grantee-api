@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  database:
+    driverClassName: org.postgresql.Driver
+  datasource:
+    password: postgres
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/granteedb
+    username: postgres
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
