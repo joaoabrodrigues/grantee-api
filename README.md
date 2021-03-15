@@ -3,6 +3,7 @@
 ### Arquitetura geral
 Prezando pela simplicidade, não percebi a necessidade de criação de mais de um serviço para a tratar de favorecidos.
 Porém, uma melhoria possível, seria a aplicacão do pattern CQRS. Assim, criaríamos dois microserviços, um responsável pela leitura e outro responsável pela escrita dos dados. Logo, o uso de um não afetaria o uso de outro, e é possível alocar recursos separadamente para cada um conforme necessidade.
+
 ![image](img/topology.png)
 
 ### Base histórica
@@ -22,6 +23,7 @@ Conforme exemplificado na imagem abaixo, a modelagem foi pensada em três tabela
 1) grantee: tabela responsável por armazenar os dados de um favorecido;
 2) grantee_account: tabela responsável por armazenar os dados da conta de um favorecido. Um favorecido pode ter N contas;
 3) user_grantee: tabela que relaciona os favorecidos com um usuário do sistema. Um usuário pode ter associado a ele N contas de favorecidos;
+
 ![image](img/er.png)
 
 A tabela user_grantee é a responsável por relacionar os favorecidos cadastrados com os usuários da aplicação. Novamente, prezando pela simplicidade, a api desenvolvida simplesmente recebe o user_id do usuário da aplicação e o relaciona com o favorecido cadastrado. Em um cenário real, o client que usaria a api (internet banking, mobile app, desktop app) deveria se autenticar e por esta, a api relacionaria o cadastro do favorecido com o usuário autenticado.
