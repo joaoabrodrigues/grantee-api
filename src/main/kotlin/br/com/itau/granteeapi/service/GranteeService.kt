@@ -55,8 +55,9 @@ class GranteeService(private val validations: GranteeValidations,
         val branch = granteeDTO.granteeAccount.branch
         val digit = granteeDTO.granteeAccount.digit
 
-
-        if (pixKey.isNullOrBlank()) {
+        if (!pixKey.isNullOrBlank()) {
+            println("pixKey $pixKey cpfCpnj ${granteeDTO.cpfCnpj}")
+            println("granteeACcounts $granteeAccounts")
             return granteeAccounts.first { it.pixKey == pixKey && it.grantee.cpfCnpj == granteeDTO.cpfCnpj }
         }
 

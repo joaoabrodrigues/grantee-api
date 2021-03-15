@@ -9,7 +9,7 @@ spring:
   datasource:
     password: postgres
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/granteedb
+    url: jdbc:postgresql://${HOSTNAME:localhost}:5432/granteedb
     username: postgres
   jpa:
     database: POSTGRESQL

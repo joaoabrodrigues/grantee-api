@@ -61,7 +61,7 @@ grantee -> a person who receive a conveyance
 
 ### Running app
 ```shell
-docker-compose up -d && sleep 10 && ./gradlew build bootRun -x test
+./gradlew clean build -x test && docker-compose up -d
 ```
 
 ### Running tests
